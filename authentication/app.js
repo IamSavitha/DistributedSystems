@@ -1,28 +1,33 @@
-// app.js
-const express = require('express');
+//enable EJS + layouts + routes
+
 const path = require('path');
+const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
 
-const app = express();  
-const PORT = process.env.PORT || 3001;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Middleware: serve static files (HTML, CSS, JS) from /public
+// View engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(expressLayouts);
+app.set('layout', 'layout'); // views/layout.ejs
+
+// Static + forms
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
 
-// Basic route
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// Expose simple locals (e.g., active nav)
+app.use((req, res, next) => {
+  res.locals.path = req.path; // used to highlight the current nav link
+  next();
 });
 
-app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'about.html'));
-  });
+// Routes
+const mainRoutes = require('./routes/main');
+app.use('/', mainRoutes);
 
-app.get('/hello', (req, res) => {
-    res.json({ msg: "Hello ADS-SJSU 🚀" });
- });
-  
+// 404
+app.use((req, res) => res.status(404).render('index', { title: 'Not Found' }));
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server http://localhost:${PORT}`));
