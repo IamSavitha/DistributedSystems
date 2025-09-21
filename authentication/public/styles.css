@@ -1,0 +1,44 @@
+:root{
+    --bg: #f7f8fa;
+    --muted: #6b7280;
+    --ring: rgba(29,78,216,0.15);
+  }
+  
+  /* Background band */
+  .bg-gradient{
+    background: linear-gradient(180deg, #e8efff, transparent 70%);
+  }
+  
+  /* Logo subtle effect */
+  .logo{
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,.08));
+  }
+  
+  /* Smooth scroll offsets so sticky navbar doesn’t cover headings */
+  [data-section]{ scroll-margin-top: 88px; }
+  
+  /* Back-to-top button visibility */
+  .to-top{
+    right: 1rem; bottom: 1rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    z-index: 1030; /* above cards */
+  }
+  .to-top.show{
+    opacity: 1; pointer-events: auto;
+  }
+  
+  /* Hidden utility used by JS */
+  .hidden{ display: none !important; }
+  
+  /* Active nav link (JS toggles .active on a.nav-link) */
+  .navbar .nav-link.active{
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  
+  /* Optional: form states for success/error */
+  #formMsg.success{ color: #0a7d27; }
+  #formMsg.error{ color: #b42318; }
+  
