@@ -1,6 +1,6 @@
-Homework 5: User Management App  
+Homework 5: Library Management App  
 This project is my Homework 5. It is a small full-stack app where backend is FastAPI + MySQL and frontend is React + Redux.
-Main goal is to create, read, update and delete users (CRUD).
+Main goal is to create, read, update and delete books (CRUD).
 
 **1. How to Run Backend**
 
@@ -51,7 +51,7 @@ Start frontend dev server:
 npm start
 
 Browser open automatically at http://localhost:3000
-. You will see User Management App UI.
+. You will see Library Management App UI.
 
 **3. Versions used**
 
@@ -73,12 +73,12 @@ Redux: 5.0.1
 
 **4. CRUD Testing**
 
-Create User → /api/users POST
+Create book → /api/books POST
 
-List Users → /api/users GET
+List books → /api/books GET
 
-Update User → /api/users/{id} PUT
+Update book → /api/books/{id} PUT
 
-Delete User → /api/users/{id} DELETE
+Delete book → /api/books/{id} DELETE
 
 Can test these in Swagger UI or using curl in terminal.
