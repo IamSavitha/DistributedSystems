@@ -72,8 +72,13 @@ React: 19.0.0
 Redux: 5.0.1
 
 **4. CRUD Testing**
+add author → /api/author POST
 
-Create book → /api/books POST
+List author → /api/author GET
+
+Delete author → /api/authors/{id} DELETE
+
+add book → /api/books POST
 
 List books → /api/books GET
 
