@@ -1,0 +1,10 @@
+# Core libs for Part 2: LlamaIndex chunking comparison
+llama-index>=0.11
+llama-index-embeddings-huggingface
+sentence-transformers>=2.6
+numpy>=1.24
+pandas>=2.0
+# Optional: fast ANN search (skip if it fails to install)
+faiss-cpu
+# Needed for sentence-transformers
+torch>=2.1

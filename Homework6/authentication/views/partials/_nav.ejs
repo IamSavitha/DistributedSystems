@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" href="/">ADS-SJSU</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navMain" class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link <%= path === '/' ? 'active' : '' %>" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= path === '/about' ? 'active' : '' %>" href="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= path === '/contact' ? 'active' : '' %>" href="/contact">Contact</a>
+        </li>
+
+        <% if (user) { %>
+          <li class="nav-item">
+            <a class="nav-link <%= path === '/dashboard' ? 'active' : '' %>" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <form class="d-inline" action="/logout" method="POST">
+              <button class="btn btn-sm btn-light ms-2" type="submit">Log out</button>
+            </form>
+          </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link <%= path === '/login' ? 'active' : '' %>" href="/login">Log in</a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
